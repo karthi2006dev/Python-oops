@@ -1,0 +1,38 @@
+from abc import ABC,abstractmethod
+class Shape:
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self,width,height):
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width*self.height
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius = radius
+    def area(self):
+        return 3.14*self.radius*self.radius
+class Square(Shape):
+    def __init__(self,side):
+        self.side = side
+    def area(self):
+      return self.side*self.side
+class Triangle(Shape):
+    def __init__(self,side1,side2):
+        self.side1 = side1
+        self.side2 = side2
+    def area(self):
+        return self.side1*self.side2*0.5
+class Pizza(Circle):
+    def __init__(self,toppings,radius):
+        super().__init__(radius)
+        self.toppings = toppings
+
+
+
+shapes=[Circle(2),Rectangle(3,4),Triangle(5,6),Pizza("olives",6),Square(7)]
+for shape in shapes:
+    print(f"{shape.area()}"+"cm²")
