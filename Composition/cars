@@ -1,0 +1,33 @@
+class Engine:
+    def __init__(self,horsepower):
+        self.horsepower=horsepower
+
+    def drive(self):
+        print("engine started")
+
+class Wheels:
+    def __init__(self,type):
+        self.type=type
+
+    def drive(self):
+        print("wheels running")
+
+
+class Car:
+    def __init__(self,name,engine,wheels):
+        self.engine=Engine(engine)
+        self.wheels=Wheels(wheels)
+        self.name=name
+
+    def drive(self):
+        self.engine.drive()
+        self.wheels.drive()
+        print("car moving");
+
+    def spec(self):
+       print(f"Name: {self.name}\nHP:{self.engine.horsepower}\nWheelsType:{self.wheels.type}\n")
+
+
+car1=Car("Porshe","300HP","RWD")
+car1.drive()
+car1.spec()
