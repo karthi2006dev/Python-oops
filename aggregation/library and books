@@ -1,0 +1,47 @@
+class Library:
+  count=0
+  books = []
+  def __init__(self,name):
+         self.name=name
+
+  def addBook(self,book):
+      Library.count += 1
+      self.books.append(book)
+      print(f"Book no:{Library.count}\nName:{book.name}\nAuthor:{book.author}\n added")
+
+
+
+  def getBook(self):
+        print(f"Book no:{Library.count}\nName:{book.name}\nAuthor:{book.author}")
+
+  def delBook(self,index):
+        if Library.count==0:
+            print("no book is there in library")
+        else:
+
+            print(f"Book no:{Library.count}\nName:{Library.books[Library.count-1].name}\nAuthor:{Library.books[Library.count-1].author}\n removed")
+            self.books.pop(index)
+            Library.count -= 1
+  def listBooks(self):
+      i=1
+      for book in self.books:
+          print(f"Book no:{i}\nName:{book.name}\nAuthor:{book.author}\n")
+          i+=1
+
+class Book:
+    def __init__(self,name,author):
+        self.name=name
+        self.author=author
+
+lib1 = Library("WorldLibrary")
+
+book1=Book("Harry potter","J.K Rowling")
+book2=Book("Hamlet","shakespeare")
+book3=Book("The Diary of a young Girl","anne frank")
+
+lib1.addBook(book1)
+lib1.addBook(book2)
+lib1.addBook(book3)
+
+lib1.delBook(1)
+lib1.listBooks()
